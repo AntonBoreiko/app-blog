@@ -1,6 +1,8 @@
-# Boilerplate parcel.js 🚀
+# Blog 🚀
 
-1. `git clone https://github.com/gromalex/boilerplate_parcel.git`
-2. `cd ./boilerplate_parcel`
-3. `npm install`
-4. `npm run dev`
+1. `git clone https://github.com/gromalex/app-blog.git`
+2. `cd ./app-blog`
+3. `git remote set-url origin <own_rep>`
+4. `npm install`
+5. `npm run watch` and `npm run server`
+6. Open http://localhost:8080/
