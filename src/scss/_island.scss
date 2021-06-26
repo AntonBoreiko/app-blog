@@ -1,0 +1,20 @@
+$component: "island";
+
+.#{$component} {
+  padding: 20px;
+  border-radius: 1rem;
+
+  background-color: #888;
+  &__item {
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out;
+
+    & + & {
+      border-top: 1px solid $border-color;
+    }
+    &:hover {
+      background-color: rgb(77, 109, 196);
+    }
+  }
+}

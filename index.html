@@ -1,15 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Boilerplate Parcel.js</title>
 
   <link rel="stylesheet" href="./src/scss/app.scss">
   <script src="./src/javascript/app.js" defer></script>
 </head>
+
 <body>
-  <h1>Boilerplate Parcel.js</h1>
+  <header class="d-flex justify-content-between p-4">
+    <h1>Кулинарный БЛОГ</h1>
+
+    <button id="buttonOpenModalCreate" class="btn  btn-primary" data-bs-toggle="modal"
+      data-bs-target="#modalForm">Создать категорию</button>
+
+
+    <button id="buttonOpenModalCreateRecipes" class="btn  btn-primary" data-bs-toggle="modal"
+      data-bs-target="#modalForm">Создать рецепт</button>
+  </header>
+
+  <main class="p-3">
+    <div class="row">
+      <h2>Категории</h2>
+      <div class="col-4" style="min-height: 500px;">
+        <div id="lists" class="island h-100">
+
+        </div>
+      </div>
+      <div class="col-8" style="min-height: 500px;">
+        <div id="content" class="island h-100">
+          <article class="">
+            // <img style="width:200px; height: 180px;"
+              src="https://bipbap.ru/wp-content/uploads/2019/12/a263c2ec006b505ee621f24b597672e3.jpg" class="">
+            <h2>павпавпавggggggggggggggggggggggggggп</h2>
+            <time>папавпав</time>
+          </article>
+          <article class="">
+            // <img style="width:200px; height: 180px;"
+              src="https://bipbap.ru/wp-content/uploads/2019/12/a263c2ec006b505ee621f24b597672e3.jpg" class="">
+            <h2>павпавпавgggggggggggggggggggggggggggп</h2>
+            <time>папавпав</time>
+          </article>
+          <article class="">
+            // <img style="width:200px; height: 180px;"
+              src="https://bipbap.ru/wp-content/uploads/2019/12/a263c2ec006b505ee621f24b597672e3.jpg" class="">
+            <h2>павпавпавggggggggggggggggggggggggggggggggп</h2>
+            <time>папавпав</time>
+          </article>
+          <article class="">
+            // <img style="width:200px; height: 180px;"
+              src="https://bipbap.ru/wp-content/uploads/2019/12/a263c2ec006b505ee621f24b597672e3.jpg" class="">
+            <h2>павпавпавggggggggggggggggggggп</h2>
+            <time>папавпав</time>
+          </article>
+          <article class="">
+            // <img style="width:200px; height: 180px;"
+              src="https://bipbap.ru/wp-content/uploads/2019/12/a263c2ec006b505ee621f24b597672e3.jpg" class="">
+            <h2>павпавпавgggggggggggggggggggggggggggggggп</h2>
+            <time>папавпав</time>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="modalForm" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form">
+            <div class="mb-3">
+              <label for="inputTitle" class="form-label">Заголовок</label>
+              <input type="text" class="form-control" id="inputTitle">
+            </div>
+            <div class="mb-3">
+              <label for="textareaContent" class="form-label">Контент</label>
+              <textarea class="form-control" id="textareaContent" rows="5"></textarea>
+            </div>
+          </form>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button form="form" type="submit" class="btn btn-primary">Отправить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </body>
+
 </html>
