@@ -3,8 +3,7 @@ $component: "island";
 .#{$component} {
   padding: 20px;
   border-radius: 1rem;
-
-  background-color: #888;
+  background-color: #d89c1b;
   &__item {
     padding: 1rem;
     cursor: pointer;
@@ -17,4 +16,14 @@ $component: "island";
       background-color: rgb(77, 109, 196);
     }
   }
+}
+.checked {
+  background-color: coral;
+}
+.scroll {
+  position: relative;
+  background-color: #d89c1b;
+  padding-bottom: 30px;
+  max-height: 700px;
+  overflow-y: auto;
 }

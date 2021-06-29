@@ -17,7 +17,7 @@ router.get('/:id', function (req, res, next) {
     }
   });
 
-  res.json(arr.length ? arr[0] : null);
+  res.json(newArr.length ? newArr[0] : null);
 });
 
 router.post('/', function (req, res, next) {

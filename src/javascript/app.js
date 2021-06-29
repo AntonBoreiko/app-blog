@@ -1,9 +1,6 @@
 import { Form } from './form'
 import { List } from './list'
-// import './lesson-fech'
-
-
-
+import { Lists } from './lists'
 
 
 new Form()
@@ -11,10 +8,14 @@ new Form()
 
 fetch('/api/posts')
   .then(response => response.json())
-  .then(data => new List(data))
+  .then(data => {
+    new List(data)
+
+    new Lists(data.list[0])
+  })
 
 
 
 
 
-  
+
