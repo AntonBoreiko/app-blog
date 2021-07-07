@@ -2,6 +2,7 @@ class List {
   constructor(data) {
     this.containerElement = document.querySelector('#lists')
     this.data = data
+    this.activeItemElement = null
 
     this._init(this.data)
   }
@@ -11,12 +12,30 @@ class List {
     this.render(this.data)
 
     window.addEventListener('lists:updated', ({ detail }) => {
-      this.render(detail)
+      const { id } = detail
+
+      this.containerElement.innerHTML = ""
+
+      detail.list.forEach(item => {
+        const tempalte = this._template(item)
+
+        this.containerElement.innerHTML += tempalte
+      })
     })
+
 
     this.containerElement.addEventListener('click', this._handleClick.bind(this))
 
-    this.containerElement.addEventListener('click', this._handleChecked.bind(this))
+    window.addEventListener('posts:active', ({ detail }) => {
+      const activeElement = document.querySelectorAll('.island__item')
+
+      activeElement.forEach(item => {
+        const { id } = detail
+        if (id == item.dataset.id) {
+          this._toggleItem(item)
+        }
+      })
+    })
   }
 
 
@@ -24,35 +43,32 @@ class List {
     const template = `
       <div class="island__item close" data-id="${data.id}">
         <h4>${data.title}</h4>
-        <time>${data.createdAt}</time>
+        <time>${data.createAt}</time>
       </div>
     `
     return template
   }
 
-  // ПОДУМАТЬ КАК МОЖНО СДЕЛАТЬ ВЫДЕЛЕНИЕ ПО ДРУГОМУ
-  _handleChecked({ target }) {
-    const itemElement = target.closest('.island__item')
 
-    const itemId = itemElement.dataset.id
+  _toggleItem(element) {
+    if (this.activeItemElement) {
+      this.activeItemElement.classList.remove('island__item_active')
+    }
 
-    window.addEventListener('posts:checked', ({ detail }) => {
-      const { id } = detail
-      if ({ id }.id === itemId) {
-        itemElement.classList.remove('close')
-        itemElement.classList.add('checked')
-      } else {
-        itemElement.classList.remove('checked')
-        itemElement.classList.add('close')
-      }
-    })
+    if (!element) return
+
+    element.classList.add('island__item_active')
+    this.activeItemElement = element
   }
-  //
+
 
   _handleClick({ target }) {
     const itemElement = target.closest('.island__item')
     if (itemElement) {
+      this._toggleItem(itemElement)
+
       const { id } = itemElement.dataset
+
       const event = new CustomEvent('posts:checked', {
         detail: { id }
       })
@@ -63,12 +79,14 @@ class List {
 
   render(data) {
     this.containerElement.innerHTML = ""
+
     data.list.forEach(item => {
       const tempalte = this._template(item)
 
       this.containerElement.innerHTML += tempalte
 
     })
+    this._toggleItem(document.querySelector('.island__item'))
   }
 }
 

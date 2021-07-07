@@ -11,21 +11,94 @@
 </head>
 
 <body>
-  <header class="d-flex justify-content-between p-4">
+  <header class="d-flex justify-content-between p-4" style="background-color: #3f86c0;">
     <h1>Кулинарный БЛОГ</h1>
-    <button id="buttonOpenModalCreate" type="button" class="btn btn-warning" data-bs-toggle="modal"
+    <button id="buttonOpenModalCreate" type="button" class="btn btn-info ms-auto me-3" data-bs-toggle="modal"
       data-bs-target="#modalForm">Создать рецепт</button>
-  </header>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Инфо Markdown
+    </button>
 
-  <main class="p-3">
-    <div class="row">
-      <h2>Рецепты:</h2>
-      <div class="col-4 scroll " >
-        <div id="lists" class="island h-100">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              В приложении работает Markdown
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h4>ОПИСАНИЕ СИНТАКСИСА</h4>
+            <h4>Markdown</h4> – это облегченный язык разметки, который является инструментом преобразования кода в HTML.
+            </br>
+            <h4>Заголовки</h4> первого, третьего и шестого уровней, выполненные с помощью символа («#»), выглядят
+            следующим
+            образом:
+            <ul>
+              <li># Заголовок первого уровня</li>
+              <li>### Заголовок третьего уровня</li>
+              <li>###### Заголовок шестого уровня</li>
+            </ul>
+            <h4>Списки</h4>
+            <ul>
+              <li>* Проводник</li>
+              <li>* Полупроводник</li>
+              <li>* Диэлектрик</li>
+            </ul>
+            <span>Или</span>
+            <ul>
+              <li>- Проводник</li>
+              <li>- Полупроводник</li>
+              <li>- Диэлектрик</li>
+            </ul>
+            <span>Или</span>
+            <ul>
+              <li>+ Проводник</li>
+              <li>+ Полупроводник</li>
+              <li>+ Диэлектрик</li>
+            </ul>
+            <h4>Блоки кода</h4>
+            <ul>
+              <li>Первая часть текста, который необходимо разделить</li>
+              <li>***</li>
+              <li>Вторая часть текста, который необходимо разделить</li>
+            </ul>
+
+            <ul>
+              <li>Первая часть текста, который необходимо разделить</li>
+              <li>---</li>
+              <li>Вторая часть текста, который необходимо разделить</li>
+            </ul>
+            <h4>Ссылки</h4>
+            <ul>
+              <li>[id]: http://example.com/ "Необязательная подсказка"</li>
+              <span>Или</span>
+              <li>[Example]: http://example.com/</li>
+            </ul>
+            <h4>Выделение текста</h4>
+            <ul>
+              <li>Текст, окружённый одиночными «*» или «_», будет заключен в HTML-тэг <em>.</li>
+              <li>Текст, окружённый двойными «*» или «_», будет заключен в HTML-тэг <strong>.</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Понятно</button>
+          </div>
         </div>
       </div>
-      <div class="col-8 scroll" >
-        <div id="content" class="island h-100">
+    </div>
+  </header>
+
+  <main class="p-3" style="background-color: #3f86c0;">
+    <div class="row">
+      <h2>Рецепты:</h2>
+      <div class="col-4 scroll ">
+        <div id="lists" class="island">
+        </div>
+      </div>
+      <div class="col-8 scroll ">
+        <div id="content" class="island">
         </div>
       </div>
     </div>
@@ -40,16 +113,19 @@
         </div>
         <div class="modal-body">
           <form id="form">
+            <input type="hidden" id="inputId" name="id">
+            <input type="hidden" id="inputCreatedAt" name="createAt">
+
             <div class="mb-2">
               <label for="inputTitle" class="form-label">Название</label>
-              <input type="text" class="form-control" id="inputTitle">
+              <input type="text" class="form-control" id="inputTitle" name="title">
             </div>
             <div class="mb-2">
               <label for="inputParts" class="form-label">Ингредиенты</label>
-              <textarea class="form-control" id="inputParts" rows="2"></textarea>
+              <textarea class="form-control" id="inputParts" rows="2" name="parts"></textarea>
             </div>
             <div class="mb-3">
-              <select class="form-select" id="selectСategories" aria-label="Default select example">
+              <select class="form-select" id="selectСategories" aria-label="Default select example" name="categories">
                 <option selected>Выберите категорию</option>
                 <option value="Завтраки">Завтраки</option>
                 <option value="Закуски">Закуски</option>
@@ -60,7 +136,7 @@
               </select>
             </div>
             <div class="mb-3">
-              <select class="form-select" id="selectLevel" aria-label="Default select example">
+              <select class="form-select" id="selectLevel" aria-label="Default select example" name="level">
                 <option selected>Укажите сложность</option>
                 <option value="Справится и новичок">Справится и новичок</option>
                 <option value="Домохозяйка со стажем">Домохозяйка со стажем</option>
@@ -69,12 +145,12 @@
             </div>
             <div class="mb-3">
               <label for="textareaContent" class="form-label">Приготовление</label>
-              <textarea class="form-control" id="textareaContent" rows="4"></textarea>
+              <textarea class="form-control" id="textareaContent" rows="4" name="content"></textarea>
             </div>
 
             <div class="mb-2">
               <label for="inputUrl" class="form-label">URL фото блюда</label>
-              <input type="text" class="form-control" id="inputUrl">
+              <input type="text" class="form-control" id="inputUrl" name="image">
             </div>
           </form>
           <div class="modal-footer">
