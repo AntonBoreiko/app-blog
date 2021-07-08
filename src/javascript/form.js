@@ -44,6 +44,9 @@ class Form {
 
 
   _handleClickButtonOpenModal() {
+
+    this.formElement.reset()
+
     this.formElement.setAttribute('method', 'POST')
   }
 
