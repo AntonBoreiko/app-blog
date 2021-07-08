@@ -1,0 +1,37 @@
+@media (max-width: 1024px) {
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    .header__wrapper {
+      display: flex;
+    }
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    .header__wrapper {
+      margin-top: 40px;
+    }
+    .btn {
+      font-size: 14px;
+    }
+  }
+}

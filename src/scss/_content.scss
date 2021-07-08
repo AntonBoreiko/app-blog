@@ -12,3 +12,11 @@
 .card {
   background-color: #f8f9fa56;
 }
+
+@media (max-width: 480px) {
+  .card {
+    .btn {
+      font-size: 14px;
+    }
+  }
+}

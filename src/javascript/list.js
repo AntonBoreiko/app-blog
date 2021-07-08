@@ -21,6 +21,8 @@ class List {
 
         this.containerElement.innerHTML += tempalte
       })
+
+      this._toggleItem(document.querySelector('.island__item'))
     })
 
 
@@ -42,8 +44,8 @@ class List {
   _template(data) {
     const template = `
       <div class="island__item close" data-id="${data.id}">
-        <h4>${data.title}</h4>
-        <time>${data.createAt}</time>
+          <h4  >${data.title}</h4>
+          <time>${data.createAt}</time>
       </div>
     `
     return template

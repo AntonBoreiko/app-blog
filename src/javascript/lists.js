@@ -35,7 +35,7 @@ class Lists {
       <div class="card mb-3" style="max-width: 100%;">
         <div class="row g-0" height:90%;">
         <div class="col-md-4">
-          <img src="${data.image}" class="img-fluid rounded-start" alt="...">
+          <img alt="Фото не добавлено" src="${data.image}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-6">
           <div class="card-body">
@@ -47,18 +47,18 @@ class Lists {
             </div>
           </div>
         </div>
-          <div class="m-3 text">
+          <div class="m-3 p-3 text">
             <h4>Ингридиенты:</h4>
             <p class="card-text">${partsHtml}</p>
             <h4>Приготовление</h4>
-            <p class="card-text">${contentHtml}</p>
+            <p class="card-text ">${contentHtml}</p>
           </div>
         </div>
-      <div class="mt-auto d-flex p-3">
-        <button data-id="${data.id}" type="button" class="btn btn-warning deteleBtn ms-auto me-3 p-3"
-        data-action="edit">Редактировать</button>
-        <button data-id="${data.id}" type="button" class="btn btn-danger deteleBtn" data-action="remove">Удалить</button>
-      </div>
+        <div class="mt-auto d-flex p-3">
+          <button data-id="${data.id}" type="button" class="btn btn-warning deteleBtn ms-auto me-3 p-3"
+          data-action="edit">Редактировать</button>
+          <button data-id="${data.id}" type="button" class="btn btn-danger deteleBtn" data-action="remove">Удалить</button>
+        </div>
 
       </div>
     `

@@ -13,11 +13,14 @@
 <body>
   <header class="d-flex justify-content-between p-4" style="background-color: #3f86c0;">
     <h1>Кулинарный БЛОГ</h1>
-    <button id="buttonOpenModalCreate" type="button" class="btn btn-info ms-auto me-3" data-bs-toggle="modal"
-      data-bs-target="#modalForm">Создать рецепт</button>
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Инфо Markdown
-    </button>
+    <div class="header__wrapper">
+      <button id="buttonOpenModalCreate" type="button" class="btn btn-info ms-auto me-3" data-bs-toggle="modal"
+        data-bs-target="#modalForm">Создать рецепт</button>
+      <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Инфо Markdown
+      </button>
+    </div>
+
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -30,7 +33,8 @@
           </div>
           <div class="modal-body">
             <h4>ОПИСАНИЕ СИНТАКСИСА</h4>
-            <h4>Markdown</h4> – это облегченный язык разметки, который является инструментом преобразования кода в HTML.
+            <h4>Markdown</h4> – это облегченный язык разметки, который является инструментом преобразования кода в
+            HTML.
             </br>
             <h4>Заголовки</h4> первого, третьего и шестого уровней, выполненные с помощью символа («#»), выглядят
             следующим
@@ -90,15 +94,17 @@
     </div>
   </header>
 
-  <main class="p-3" style="background-color: #3f86c0;">
+  <main class="p-3" style="background-color: #3f86c0; min-height: 800px;">
     <div class="row">
       <h2>Рецепты:</h2>
-      <div class="col-4 scroll ">
-        <div id="lists" class="island">
+      <div class="wrapper">
+        <div class="col-4 scroll">
+          <div id="lists" class="island">
+          </div>
         </div>
-      </div>
-      <div class="col-8 scroll ">
-        <div id="content" class="island">
+        <div class="col-8 scroll">
+          <div id="content" class="island">
+          </div>
         </div>
       </div>
     </div>
@@ -160,6 +166,7 @@
         </div>
       </div>
     </div>
+
 </body>
 
 </html>

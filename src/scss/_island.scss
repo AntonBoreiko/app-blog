@@ -27,3 +27,29 @@ $component: "island";
   max-height: 700px;
   overflow-y: auto;
 }
+
+.wrapper {
+  display: flex;
+
+  .scroll {
+    margin-right: 5px;
+  }
+}
+@media (max-width: 1024) {
+  .wrapper {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .scroll {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .scroll {
+    width: 100%;
+  }
+}
