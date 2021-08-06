@@ -10,3 +10,6 @@
 5. `npm run watch` and `npm run server`
 6. Open http://localhost:8080/
 
+
+<img src="./src/img/Анимация.gif">
+
