@@ -9,7 +9,7 @@ class List {
 
 
   _init() {
-    this.render(this.data)
+    this.render(this.data) 
 
     window.addEventListener('lists:updated', ({ detail }) => {
       const { id } = detail
