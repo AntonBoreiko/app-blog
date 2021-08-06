@@ -1,7 +1,7 @@
 
 # Сulinary blog 🍕
 ##  Приложение на нативном JS без фреймворков с использованием мини-сервера на Node.js.
-##  применялись: localStorage и REST API
+##  применялись: localStorage, REST API, Markdown
 
 1. `git clone https://github.com/gromalex/app-blog.git`
 2. `cd ./app-blog`
